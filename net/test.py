@@ -48,7 +48,7 @@ net.load_state_dict(ckp["model"])
 net.eval()
 
 times = []
-for im in os.listdir(img_dir)[0:1]:
+for im in os.listdir(img_dir)[1:]:
     start_time = time.time()
     haze = Image.open(img_dir + im)
     haze1 = tfs.Compose([tfs.ToTensor()])(haze)[None, ::].to(device=device)
